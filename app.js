@@ -6,10 +6,8 @@
 Ext.application({
     name: 'Ares',
 
-    extend: 'Ares.Application',
+    extend: 'Ares.Application'
     
-    autoCreateViewport: 'Ares.view.main.Main'
-	
     //-------------------------------------------------------------------------
     // Most customizations should be made to Ares.Application. If you need to
     // customize this file, doing so below this section reduces the likelihood
