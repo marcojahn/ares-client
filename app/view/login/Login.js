@@ -14,6 +14,7 @@ Ext.define('Ares.view.login.Login', {
     controller: 'login',
     bodyPadding: 10,
     title: 'Login - Ares',
+    glyph: 'xf023@FontAwesome',
     closable: false,
 
     cls: 'login',

@@ -29,10 +29,10 @@ Ext.define('Ares.view.main.Main', {
                 {
                     xtype: 'component',
                     id: 'app-header-logo'/*,
-                    listeners: {
-                        click: 'showBindInspector',
-                        element: 'el'
-                    }*/
+                 listeners: {
+                 click: 'showBindInspector',
+                 element: 'el'
+                 }*/
                 },
                 {
                     xtype: 'component',
@@ -54,20 +54,59 @@ Ext.define('Ares.view.main.Main', {
             ]
         },
         {
-            //xtype: 'container',
-            region: 'west',
-            width: 250,
-            split: true,
-            collapsible: true,
-
-            html: 'west'
-        },
-        {
-            //xtype: 'container',
+            xtype: 'tabpanel',
             region: 'center',
             flex: 1,
+            reference: 'main',
 
-            html: 'center'
+            ui: 'navigation',
+            cls: 'app-menu-navigation',
+
+            tabBarHeaderPosition: 0,
+            titleRotation: 0,
+            tabRotation: 0,
+            headerPosition: 'left',
+
+            defaults: {
+                tabConfig: {
+                    iconAlign: 'left',
+                    textAlign: 'left',
+                    flex: 0
+                }
+            },
+
+            items: [
+                {
+                    // This page has a hidden tab so we can only get here during initialization. This
+                    // allows us to avoid rendering an initial activeTab only to change it immediately
+                    // by routing
+                    xtype: 'component',
+                    tabConfig: {
+                        hidden: true
+                    }
+                },
+                {
+                    title: 'Reservation',
+                    glyph: 'xf0e0@FontAwesome',
+                    html: 'Another one'
+                },
+                {
+                    title: 'Planes',
+                    glyph: 'xf072@FontAwesome',
+                    bodyPadding: 10,
+                    html: 'A simple tab'
+                },
+                {
+                    title: 'User',
+                    glyph: 'xf007@FontAwesome',
+                    html: 'Another one'
+                },
+                {
+                    title: 'Monitoring',
+                    glyph: 'xf080@FontAwesome',
+                    html: 'Another one'
+                }
+            ]
         }
     ]
 });

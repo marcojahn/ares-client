@@ -5,6 +5,9 @@
 [ ] introduce config object for base URL
 [ ] Login: show indicator/mask in login form itself
 
+## Font Awesome icon cheatsheat
+http://fortawesome.github.io/Font-Awesome/cheatsheet/
+
 This folder is primarily a container for the top-level pieces of the application.
 While you can remove some files and folders that this application does not use,
 be sure to read below before deciding what can be deleted and what needs to be
