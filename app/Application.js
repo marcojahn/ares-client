@@ -5,23 +5,8 @@
  */
 Ext.define('Ares.Application', {
     extend: 'Ext.app.Application',
-    
-    name: 'Ares',
-
-    views: [
-        // TODO: add views here
-    ],
 
     controllers: [
-        'Root'
-        // TODO: add controllers here
-    ],
-
-    stores: [
-        // TODO: add stores here
-    ],
-    
-    launch: function () {
-        // TODO - Launch the application
-    }
+        'Root@Ares.controller'
+    ]
 });

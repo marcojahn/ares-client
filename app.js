@@ -6,7 +6,11 @@
 Ext.application({
     name: 'Ares',
 
-    extend: 'Ares.Application'
+    extend: 'Ares.Application',
+
+    requires: [
+        'Ares.*'
+    ]
     
     //-------------------------------------------------------------------------
     // Most customizations should be made to Ares.Application. If you need to
