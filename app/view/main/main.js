@@ -50,6 +50,14 @@ Ext.define('Ares.view.main.Main', {
                         element: 'el'
                     },
                     margin: '0 10 0 0'
+                },
+                {
+                    xtype: 'button',
+                    cls: 'app-header-button',
+                    glyph: 'xf011@FontAwesome',
+                    text: 'Logout',
+                    margin: '0 10 0 0',
+                    action: 'logout'
                 }
             ]
         },

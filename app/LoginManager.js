@@ -13,6 +13,17 @@ Ext.define('Ares.LoginManager', {
         session: null
     },
 
+    statics: {
+        logout: function (options) {
+            Ext.Ajax.request({
+                url: '/WebService/anonymous/sessions',
+                method: 'DELETE',
+                scope: options.scope,
+                callback: options.callback
+            });
+        }
+    },
+
     constructor: function (config) {
         this.initConfig(config);
     },

@@ -51,6 +51,17 @@ $app-header-use-gradient: true;
     }
 }
 
+.app-header-button {
+    @if $app-header-use-gradient {
+        @include background-image(
+                linear-gradient(top, lighten($app-header-background-color, 5),
+                        darken($app-header-background-color, 5)));
+    } @else {
+        background-color: $app-header-background-color;
+    }
+    border: 1px solid darken($app-header-background-color, 15);
+}
+
 #app-header-logo {
     width: 40px;
     height: 25px;

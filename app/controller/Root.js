@@ -9,10 +9,21 @@ Ext.define('Ares.controller.Root', {
 
     loadingText: 'Loading...',
 
-    onLaunch: function () {
-        var session = this.session = new Ext.data.Session();
+    config: {
+        control: {
+            '#app-header button[action=logout]': {
+                click: 'onLogout'
+            }
+        }
+    },
 
+    onLaunch: function () {
         console.log('Root::onLaunch')
+        this.showLogin();
+    },
+
+    showLogin: function () {
+        var session = this.session = new Ext.data.Session();
 
         this.login = new Ares.view.login.Login({
             session: session,
@@ -21,6 +32,17 @@ Ext.define('Ares.controller.Root', {
                 scope: this,
                 login: 'onLogin'
             }
+        });
+    },
+
+    onLogout: function () {
+        console.log('logout button pressed');
+        Ares.LoginManager.logout({
+            callback: function () {
+                Ext.ComponentQuery.query('viewport')[0].destroy();
+                this.showLogin();
+            },
+            scope: this
         });
     },
 
