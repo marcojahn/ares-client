@@ -7,8 +7,10 @@ Ext.define('Ares.model.Base', {
 
     schema: {
         namespace: 'Ares.model',
+        urlPrefix: 'WebService',
         proxy: {
-            url: '{prefix}/{entityName:uncapitalize}',
+            type: 'rest',
+            url: '/{prefix}/{entityName:uncapitalize}' + 's', // TODO write own formatter
             pageParam: '',
             startParam: '',
             limitParam: ''

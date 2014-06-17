@@ -3,8 +3,14 @@ Ext.define('Ares.model.User', {
 
     idProperty: 'userId',
 
+    statics: {
+        getGroupname: function(group) {
+            return this.prototype.groupNames[group];
+        }
+    },
+
     fields: [
-        {name: 'userId', mapping: '_id'},
+        {name: 'userId', mapping: '_id', defaults: null},
         'firstname',
         'lastname',
         'username',
@@ -12,7 +18,12 @@ Ext.define('Ares.model.User', {
         'email',
         'created',
         'lastmodified'
-    ]/*,
+    ],
 
-    manyToMany: 'Group'*/
+     groupNames: {
+         admin: 'Administrators',
+         user: 'Users'
+     }
+
+    /*manyToMany: 'Group'*/
 });

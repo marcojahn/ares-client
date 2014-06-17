@@ -4,7 +4,9 @@ Ext.define('Ares.view.main.Main', {
     requires: [
         'Ares.view.main.MainController',
         'Ares.view.main.MainModel',
-        'Ext.layout.container.Border'
+        'Ext.layout.container.Border',
+        'Ext.tab.Panel',
+        'Ares.view.user.User'
     ],
 
     controller: 'main',
@@ -28,11 +30,7 @@ Ext.define('Ares.view.main.Main', {
             items: [
                 {
                     xtype: 'component',
-                    id: 'app-header-logo'/*,
-                 listeners: {
-                 click: 'showBindInspector',
-                 element: 'el'
-                 }*/
+                    id: 'app-header-logo'
                 },
                 {
                     xtype: 'component',
@@ -45,10 +43,6 @@ Ext.define('Ares.view.main.Main', {
                     id: 'app-header-username',
                     cls: 'app-header-text',
                     bind: '{currentUser.firstname} {currentUser.lastname}',
-                    listeners: {
-                        click: 'onClickUserName',
-                        element: 'el'
-                    },
                     margin: '0 10 0 0'
                 },
                 {
@@ -80,8 +74,11 @@ Ext.define('Ares.view.main.Main', {
                     iconAlign: 'left',
                     textAlign: 'left',
                     flex: 0
-                }
+                },
+                bodyPadding: 10
             },
+
+            activeTab: 3,
 
             items: [
                 {
@@ -101,13 +98,12 @@ Ext.define('Ares.view.main.Main', {
                 {
                     title: 'Planes',
                     glyph: 'xf072@FontAwesome',
-                    bodyPadding: 10,
                     html: 'A simple tab'
                 },
                 {
                     title: 'User',
                     glyph: 'xf007@FontAwesome',
-                    html: 'Another one'
+                    xtype: 'userpanel'
                 },
                 {
                     title: 'Monitoring',
