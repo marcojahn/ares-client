@@ -36,7 +36,7 @@ Ext.define('Ares.view.Viewport', {
                     xtype: 'component',
                     id: 'app-header-username',
                     cls: 'app-header-text',
-                    html: 'Marco Jahn',
+                    html: '',
                     margin: '0 10 0 0'
                 },
                 {
@@ -105,5 +105,16 @@ Ext.define('Ares.view.Viewport', {
             region: 'center',
             split: true
         }
-    ]
+    ],
+
+    initComponent: function () {
+
+        this.on('afterrender', function () {
+            Ext.ComponentQuery.query('#app-header #app-header-username')[0].update(
+                    Ext.state.Manager.get('firstname', '') + ' ' + Ext.state.Manager.get('lastname', '')
+                    + ' (' + Ext.state.Manager.get('username') + ')');
+        });
+
+        this.callParent(arguments);
+    }
 });

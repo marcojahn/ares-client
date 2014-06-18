@@ -33,8 +33,7 @@ Ext.define('Ares.controller.Viewport', {
     },
 
     onMenuClick: function (menu, item, e, eOpts ) {
-        console.log(item.target);
-        this.getContentTabPanel().setActiveTab('tab-' + item.target);
+        this.getContentTabPanel().setActiveTab(item.target + '-tabpanel');
     }
 
 });

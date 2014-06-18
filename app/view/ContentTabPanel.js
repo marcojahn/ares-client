@@ -1,6 +1,10 @@
 Ext.define('Ares.view.ContentTabPanel', {
     extend: 'Ext.tab.Panel',
 
+    requires: [
+        'Ares.view.user.TabPanel'
+    ],
+
     alias: 'widget.contenttabpanel',
 
     itemId: 'contenttabpanel',
@@ -15,30 +19,30 @@ Ext.define('Ares.view.ContentTabPanel', {
         bodyPadding: 10
     },
 
+    activeTab: 3,
+
     items: [
         {
             title: 'Home',
-            itemId: 'tab-home',
+            itemId: 'home-tabpanel',
             html: 'Ares client'
         },
         {
             title: 'Reservation',
-            itemId: 'tab-reservation',
+            itemId: 'reservation-tabpanel',
             html: 'reservation'
         },
         {
             title: 'Planes',
-            itemId: 'tab-planes',
+            itemId: 'planes-tabpanel',
             html: 'reservation'
         },
         {
-            title: 'User',
-            itemId: 'tab-user',
-            html: 'user'
+            xtype: 'user-tabpanel'
         },
         {
             title: 'Monitoring',
-            itemId: 'tab-monitoring',
+            itemId: 'monitoring-tabpanel',
             html: 'monitoring'
         }
     ]

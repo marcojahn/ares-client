@@ -40,8 +40,6 @@ Ext.define('Ares.view.login.LoginWindow', {
                     username = form.findField('username'),
                     password = form.findField('password');
 
-                console.log('form submit')
-
                 Ext.Ajax.request({
                     url: '/WebService/anonymous/sessions',
                     method: 'POST',
@@ -51,11 +49,14 @@ Ext.define('Ares.view.login.LoginWindow', {
                     },
                     scope: this,
                     callback: function (options, success, response) {
-                        console.log(response)
+                        var result = Ext.JSON.decode(response.responseText);
                         if (success) {
+                            Ext.state.Manager.set('username', result.username);
+                            Ext.state.Manager.set('firstname', result.firstname);
+                            Ext.state.Manager.set('lastname', result.lastname);
+
                             me.fireEvent('loginvalid');
                         } else {
-                            var result = Ext.JSON.decode(response.responseText);
                             Ext.Msg.alert('Loginerror', Ares.CONFIG.getReason(result.reason));
                         }
                     }
