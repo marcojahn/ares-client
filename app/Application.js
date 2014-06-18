@@ -20,11 +20,13 @@ Ext.define('Ares.Application', {
 
     controllers: [
         'Ares.controller.Viewport',
-        'Ares.controller.User'
+        'Ares.controller.User',
+        'Ares.controller.Plane'
     ],
 
     stores: [
-        'Ares.store.Users'
+        'Ares.store.Users',
+        'Ares.store.Planes'
     ],
 
     onBeforeLaunch: function () {

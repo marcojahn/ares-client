@@ -82,7 +82,7 @@ Ext.define('Ares.view.Viewport', {
                             xtype: 'menuitem',
                             text: 'Planes',
                             glyph: 'xf072@FontAwesome',
-                            target: 'planes'
+                            target: 'plane'
                         },
                         {
                             xtype: 'menuitem',

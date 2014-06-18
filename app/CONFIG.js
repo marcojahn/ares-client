@@ -5,7 +5,11 @@ Ext.define('Ares.CONFIG', {
 
     URL: {
         users: {
-            url: '/WebService/Users'
+            url: '/WebService/users'
+        },
+        planes: {
+            url: '/WebService/planes',
+            types: '/WebService/planes/types'
         }
     },
 

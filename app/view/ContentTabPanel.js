@@ -2,7 +2,8 @@ Ext.define('Ares.view.ContentTabPanel', {
     extend: 'Ext.tab.Panel',
 
     requires: [
-        'Ares.view.user.TabPanel'
+        'Ares.view.user.TabPanel',
+        'Ares.view.plane.TabPanel'
     ],
 
     alias: 'widget.contenttabpanel',
@@ -19,7 +20,7 @@ Ext.define('Ares.view.ContentTabPanel', {
         bodyPadding: 10
     },
 
-    activeTab: 3,
+    activeTab: 2,
 
     items: [
         {
@@ -33,9 +34,7 @@ Ext.define('Ares.view.ContentTabPanel', {
             html: 'reservation'
         },
         {
-            title: 'Planes',
-            itemId: 'planes-tabpanel',
-            html: 'reservation'
+            xtype: 'plane-tabpanel'
         },
         {
             xtype: 'user-tabpanel'

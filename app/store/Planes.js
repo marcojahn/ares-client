@@ -1,13 +1,13 @@
-Ext.define('Ares.store.Users', {
+Ext.define('Ares.store.Planes', {
     extend: 'Ext.data.Store',
 
     requires: [
         'Ext.data.proxy.Rest'
     ],
 
-    storeId: 'UserStore',
+    storeId: 'PlaneStore',
 
-    model: 'Ares.model.User',
+    model: 'Ares.model.Plane',
 
     pageSize: 25,
 
@@ -18,7 +18,7 @@ Ext.define('Ares.store.Users', {
 
     proxy: {
         type: 'rest',
-        url: Ares.CONFIG.URL.users.url,
+        url: Ares.CONFIG.URL.planes.url,
         reader: {
             type: 'json',
             rootProperty: 'records',
