@@ -59,11 +59,17 @@ Ext.define('Ares.controller.Plane', {
                 planetype: form.findField('planetype').getValue()
             };
 
-        console.log('on plane create')
-
         this.getPlaneGrid().getStore().add(planeData);
         this.getPlaneGrid().getStore().sync({
-            success: function () {
+            success: function () {
+                this.getPlaneGrid().reloadData();
+            },
+            failure: function (batch, options) {
+                if (batch.hasException()) {
+                    var error = batch.getExceptions()[0].getError();
+                    Ext.Msg.alert(error.status + ' - ' + error.statusText, error.response.responseText);
+
+                }
                 this.getPlaneGrid().reloadData();
             },
             scope: this

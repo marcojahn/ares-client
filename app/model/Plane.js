@@ -6,6 +6,6 @@ Ext.define('Ares.model.Plane', {
     fields: [
         {name: 'planeId', mapping: '_id', defaults: null},
         'plane',
-        'type'
+        'planetype'
     ]
 });

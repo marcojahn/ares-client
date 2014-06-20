@@ -27,7 +27,9 @@ Ext.define('Ares.view.user.UserGrid', {
 
     features: [
         {
-            ftype: 'grouping'
+            ftype: 'grouping',
+            groupHeaderTpl: '{columnName}: {name} ({rows.length} Item{[values.rows.length > 1 ? "s" : ""]})',
+            startCollapsed: true
         }
     ],
 

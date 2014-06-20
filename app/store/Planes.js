@@ -16,6 +16,8 @@ Ext.define('Ares.store.Planes', {
 
     remoteSort: true,
 
+    groupField: 'planetype',
+
     proxy: {
         type: 'rest',
         url: Ares.CONFIG.URL.planes.url,
