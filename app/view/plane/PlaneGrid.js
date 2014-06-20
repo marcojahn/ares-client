@@ -93,7 +93,7 @@ Ext.define('Ares.view.plane.PlaneGrid', {
             {
                 text: 'Created',
                 dataIndex: 'created',
-                formatter: 'date("Y-m-d")',
+                formatter: 'date("' + Ares.CONFIG.formattings.dateLong + '")',
                 editor: null
             }
         ];
@@ -120,6 +120,7 @@ Ext.define('Ares.view.plane.PlaneGrid', {
     },
 
     buildFeatures: function (ptypeRenderer) {
+        var me = this;
         return [
             {
                 ftype: 'grouping',

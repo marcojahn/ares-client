@@ -3,6 +3,10 @@ Ext.define('Ares.CONFIG', {
 
     requires: ['Ext.state.*'],
 
+    formattings: {
+        dateLong: 'Y-m-d H:i:sO'
+    },
+
     URL: {
         users: {
             url: '/WebService/users'

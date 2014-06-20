@@ -28,8 +28,7 @@ Ext.define('Ares.view.user.UserGrid', {
     features: [
         {
             ftype: 'grouping',
-            groupHeaderTpl: '{columnName}: {name} ({rows.length} Item{[values.rows.length > 1 ? "s" : ""]})',
-            startCollapsed: true
+            groupHeaderTpl: '{columnName}: {name} ({rows.length} Item{[values.rows.length > 1 ? "s" : ""]})', startCollapsed: true
         }
     ],
 
@@ -59,9 +58,9 @@ Ext.define('Ares.view.user.UserGrid', {
             }
         ];
 
-        this.callParent(arguments);
+        this.callParent();
 
-        this.on('edit', function(editor, e) {
+        this.on('edit', function (editor, e) {
             // commit the changes right after editing finished
             //e.record.commit();
 
@@ -69,7 +68,7 @@ Ext.define('Ares.view.user.UserGrid', {
         }, this);
     },
 
-    reloadData: function () {
+    reloadData: function () {
         this.getStore().load();
     },
 
@@ -78,7 +77,6 @@ Ext.define('Ares.view.user.UserGrid', {
             {
                 text: 'ID',
                 dataIndex: 'userId',
-                width: 200,
                 editor: null
             },
             {
@@ -94,13 +92,11 @@ Ext.define('Ares.view.user.UserGrid', {
             {
                 text: 'User name',
                 dataIndex: 'username',
-                width: 250,
                 editor: null
             },
             {
                 text: 'Email',
                 dataIndex: 'email',
-                width: 350,
                 editor: {
                     xtype: 'textfield',
                     allowBlank: false
@@ -110,13 +106,12 @@ Ext.define('Ares.view.user.UserGrid', {
                 text: 'User group',
                 dataIndex: 'usergroup',
                 //renderer: 'renderUsergroup',
-                width: 250,
                 editor: null
             },
             {
                 text: 'Created',
                 dataIndex: 'created',
-                formatter: 'date("Y-m-d")',
+                formatter: 'date("' + Ares.CONFIG.formattings.dateLong + '")',
                 editor: null
             }
         ];
