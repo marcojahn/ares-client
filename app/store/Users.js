@@ -16,6 +16,8 @@ Ext.define('Ares.store.Users', {
 
     remoteSort: true,
 
+    groupField: 'usergroup',
+
     proxy: {
         type: 'rest',
         url: Ares.CONFIG.URL.users.url,

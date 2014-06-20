@@ -9,7 +9,7 @@ Ext.define('Ares.view.user.CreateUser', {
 
     height: 245,
     itemId: 'user-createuser',
-    width: 400,
+    width: 475,
     bodyPadding: 15,
     title: 'Create user',
 
@@ -71,17 +71,22 @@ Ext.define('Ares.view.user.CreateUser', {
                 },
                 {
                     xtype: 'radiogroup',
-                    fieldLabel: 'Group',
+                    fieldLabel: 'Usergroup',
                     allowBlank: false,
                     items: [
                         {
-                            name: 'group',
-                            boxLabel: 'User',
+                            name: 'usergroup',
+                            boxLabel: 'Guest',
                             checked: true,
+                            inputValue: 'guest'
+                        },
+                        {
+                            name: 'usergroup',
+                            boxLabel: 'User',
                             inputValue: 'user'
                         },
                         {
-                            name: 'group',
+                            name: 'usergroup',
                             boxLabel: 'Admin',
                             inputValue: 'admin'
                         }

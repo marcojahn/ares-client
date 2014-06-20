@@ -7,7 +7,8 @@ Ext.define('Ares.view.Viewport', {
         'Ext.layout.container.Border',
         'Ext.menu.Menu',
         'Ext.menu.Item',
-        'Ares.view.ContentTabPanel'
+        'Ares.view.ContentTabPanel',
+        'Ares.view.MenuPanel'
     ],
 
     items: [
@@ -50,55 +51,14 @@ Ext.define('Ares.view.Viewport', {
             ]
         },
         {
-            xtype: 'panel',
             region: 'west',
             split: true,
             border: '0 2 0 0',
-            itemId: 'menuPanel',
             width: 150,
             bodyBorder: false,
             collapseDirection: 'left',
             collapsible: true,
-            title: 'Menu',
-            items: [
-                {
-                    xtype: 'menu',
-                    floating: false,
-                    itemId: 'sideMenu',
-                    items: [
-                        {
-                            xtype: 'menuitem',
-                            text: 'Home',
-                            glyph: 'xf015@FontAwesome',
-                            target: 'home'
-                        },
-                        {
-                            xtype: 'menuitem',
-                            text: 'Reservation',
-                            glyph: 'xf0e0@FontAwesome',
-                            target: 'reservation'
-                        },
-                        {
-                            xtype: 'menuitem',
-                            text: 'Planes',
-                            glyph: 'xf072@FontAwesome',
-                            target: 'plane'
-                        },
-                        {
-                            xtype: 'menuitem',
-                            text: 'User',
-                            glyph: 'xf007@FontAwesome',
-                            target: 'user'
-                        },
-                        {
-                            xtype: 'menuitem',
-                            text: 'Monitoring',
-                            glyph: 'xf080@FontAwesome',
-                            target: 'monitoring'
-                        }
-                    ]
-                }
-            ]
+            xtype: 'menuPanel'
         },
         {
             xtype: 'contenttabpanel',

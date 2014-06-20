@@ -40,8 +40,62 @@ Ext.define('Ares.CONFIG', {
         }
     },
 
+    PERMISSIONS: {
+        admin: {
+            all: true
+        },
+        user: {
+            all: false,
+            views: {
+                reservation: true,
+                plane: true,
+                user: false,
+                monitoring: false
+            }
+        },
+        guest: {
+            all: false,
+            views: {
+                reservation: true,
+                plane: false,
+                user: false,
+                monitoring: false
+            }
+        }
+    },
+
     getReason: function (key) {
         return this.REASONS[key] || 'unknown key {' + key + '}';
+    },
+
+    hasPermission: function (view, action) {
+        var skipChecks = false,
+            retVal = false,
+            curUserGroup = Ares.CONFIG.CURRENT_USER.usergroup;
+
+        // check "all" permission
+        if (this.PERMISSIONS[curUserGroup] && this.PERMISSIONS[curUserGroup].all === true) {
+            retVal = true;
+            skipChecks = true;
+        }
+
+        // check if user has permission on "view"
+        if (skipChecks === false) {
+            if (this.PERMISSIONS[curUserGroup].views[view]) {
+
+                // check given action for view
+                if (typeof action !== "undefined") {
+
+                    // TODO
+                    retVal = true;
+
+                } else {
+                    retVal = true;
+                }
+            }
+        }
+
+        return retVal;
     }
 }, function () {
     Ext.state.Manager.setProvider(Ext.create('Ext.state.CookieProvider'));

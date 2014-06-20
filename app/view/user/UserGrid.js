@@ -2,7 +2,8 @@ Ext.define('Ares.view.user.UserGrid', {
     extend: 'Ext.grid.GridPanel',
 
     requires: [
-        'Ext.grid.plugin.RowEditing'
+        'Ext.grid.plugin.RowEditing',
+        'Ext.grid.feature.Grouping'
     ],
 
     store: 'Ares.store.Users',
@@ -22,6 +23,12 @@ Ext.define('Ares.view.user.UserGrid', {
         Ext.create('Ext.grid.plugin.RowEditing', {
             clicksToEdit: 2
         })
+    ],
+
+    features: [
+        {
+            ftype: 'grouping'
+        }
     ],
 
     initComponent: function () {

@@ -61,12 +61,20 @@ Ext.define('Ares.controller.User', {
                 username: form.findField('username').getValue(),
                 password: form.findField('password').getValue(),
                 email: form.findField('email').getValue(),
-                group: form.findField('group').getSubmitValue()
+                usergroup: form.findField('usergroup').getGroupValue()
             };
 
         this.getUserGrid().getStore().add(userData);
         this.getUserGrid().getStore().sync({
             success: function () {
+                this.getUserGrid().reloadData();
+            },
+            failure: function (batch, options) {
+                if (batch.hasException()) {
+                    var error = batch.getExceptions()[0].getError();
+                    Ext.Msg.alert(error.status + ' - ' + error.statusText, error.response.responseText);
+
+                }
                 this.getUserGrid().reloadData();
             },
             scope: this
