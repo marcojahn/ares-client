@@ -111,8 +111,8 @@ Ext.define('Ares.view.Viewport', {
 
         this.on('afterrender', function () {
             Ext.ComponentQuery.query('#app-header #app-header-username')[0].update(
-                    Ext.state.Manager.get('firstname', '') + ' ' + Ext.state.Manager.get('lastname', '')
-                    + ' (' + Ext.state.Manager.get('username') + ')');
+                    (Ares.CONFIG.CURRENT_USER.firstname || '') + ' ' + (Ares.CONFIG.CURRENT_USER.lastname || '')
+                    + ' (' + (Ares.CONFIG.CURRENT_USER.username || '') + ')');
         });
 
         this.callParent(arguments);

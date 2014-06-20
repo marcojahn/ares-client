@@ -32,8 +32,11 @@ Ext.define('Ares.Application', {
     onBeforeLaunch: function () {
         var loginWindow = Ext.create('Ares.view.login.LoginWindow');
 
-        loginWindow.on('loginvalid', function () {
+        loginWindow.on('loginvalid', function (user) {
             loginWindow.destroy();
+
+            Ares.CONFIG.CURRENT_USER = user;
+
             Ext.app.Application.prototype.onBeforeLaunch.call(this);
         }, this);
 

@@ -51,11 +51,7 @@ Ext.define('Ares.view.login.LoginWindow', {
                     callback: function (options, success, response) {
                         var result = Ext.JSON.decode(response.responseText);
                         if (success) {
-                            Ext.state.Manager.set('username', result.username);
-                            Ext.state.Manager.set('firstname', result.firstname);
-                            Ext.state.Manager.set('lastname', result.lastname);
-
-                            me.fireEvent('loginvalid');
+                            me.fireEvent('loginvalid', result);
                         } else {
                             Ext.Msg.alert('Loginerror', Ares.CONFIG.getReason(result.reason));
                         }

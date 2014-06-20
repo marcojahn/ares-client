@@ -17,6 +17,29 @@ Ext.define('Ares.CONFIG', {
         'invalid_credentials': 'Invalid credentials'
     },
 
+    CURRENT_USER: {},
+
+    WORKFLOW: {
+        start: 'reserved',
+        status: {
+            reserved: {
+                value: 'Reserved'
+            },
+            cancelled: {
+                value: 'Cancelled',
+                next: false
+            },
+            lent: {
+                value: 'Lent',
+                next: ['cancelled', 'returned']
+            },
+            returned: {
+                value: 'Returned',
+                next: false
+            }
+        }
+    },
+
     getReason: function (key) {
         return this.REASONS[key] || 'unknown key {' + key + '}';
     }
