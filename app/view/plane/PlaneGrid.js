@@ -51,6 +51,9 @@ Ext.define('Ares.view.plane.PlaneGrid', {
 
             this.getStore().sync();
         }, this);
+        this.on('beforeedit', function () {
+            return Ares.CONFIG.hasPermission('plane', 'edit');
+        }, this);
     },
 
     buildPlaneTypeStore: function () {
@@ -104,17 +107,20 @@ Ext.define('Ares.view.plane.PlaneGrid', {
             {
                 text: 'Reload',
                 glyph: 'xf021@FontAwesome',
-                action: 'reload'
+                action: 'reload',
+                hidden: !Ares.CONFIG.hasPermission('plane', 'reload')
             },
             {
                 text: 'Create',
                 glyph: 'xf067@FontAwesome',
-                action: 'create'
+                action: 'create',
+                hidden: !Ares.CONFIG.hasPermission('plane', 'create')
             },
             {
                 text: 'delete',
                 glyph: 'xf014@FontAwesome',
-                action: 'delete'
+                action: 'delete',
+                hidden: !Ares.CONFIG.hasPermission('plane', 'remove')
             }
         ];
     },

@@ -3,7 +3,8 @@ Ext.define('Ares.view.ContentTabPanel', {
 
     requires: [
         'Ares.view.user.TabPanel',
-        'Ares.view.plane.TabPanel'
+        'Ares.view.plane.TabPanel',
+        'Ares.view.monitoring.TabPanel'
     ],
 
     alias: 'widget.contenttabpanel',
@@ -20,7 +21,7 @@ Ext.define('Ares.view.ContentTabPanel', {
         bodyPadding: 10
     },
 
-    activeTab: 2,
+    activeTab: 4,
 
     items: [
         {
@@ -40,9 +41,7 @@ Ext.define('Ares.view.ContentTabPanel', {
             xtype: 'user-tabpanel'
         },
         {
-            title: 'Monitoring',
-            itemId: 'monitoring-tabpanel',
-            html: 'monitoring'
+            xtype: 'monitoring-tabpanel'
         }
     ]
 });

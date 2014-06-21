@@ -1,38 +1,89 @@
-Ext.define('Ares.view.plane.TabPanel', {
+Ext.define('Ares.view.monitoring.TabPanel', {
     extend: 'Ext.panel.Panel',
 
     requires: [
-        'Ares.view.plane.PlaneGrid',
-        'Ares.view.plane.CreatePlane'
+        'Ares.view.monitoring.tools.SessionCount'
     ],
 
     config: {
-        planeGrid: null
+        monitoringTitle: null
     },
 
-    itemId: 'plane-tabpanel',
+    itemId: 'monitoring-tabpanel',
 
-    alias: 'widget.plane-tabpanel',
+    alias: 'widget.monitoring-tabpanel',
 
-    title: 'Plane',
+    title: 'Monitoring',
 
-    layout: 'fit',
+    layout: {
+        type: 'vbox',
+        align: 'stretch'
+    },
+
+    bodyCls: 'app-monitoring',
 
     initComponent: function () {
-        this.buildPlaneGrid();
+        this.buildMonitoringTitle();
 
         this.items = [
-            this.getPlaneGrid()
+            this.getMonitoringTitle(),
+            {
+                xtype: 'container',
+                layout: {
+                    type: 'hbox',
+                    align: 'stretch'
+                },
+                flex: 1,
+                items: [{
+                    xtpe: 'container',
+                    flex: 1,
+                    layout: {
+                        type: 'vbox',
+                        align: 'stretch'
+                    },
+                    items: [{
+                        xtype: 'monitoring-tools-essioncount',
+                        flex: 1,
+                        layout: 'fit'
+                    }, {
+                        xtype: 'panel',
+                        flex: 1,
+                        margin: '20 0 0 0',
+                        //title: 'tbd',
+                        layout: 'fit',
+                        items: {}
+                    }]
+                }, {
+                    xtype: 'container',
+                    flex: 3,
+                    margin: '0 0 0 40',
+                    layout: {
+                        type: 'vbox',
+                        align: 'stretch'
+                    },
+                    items: [{
+                        flex: 1,
+                        title: 'Aggregated resource monitoring'
+                    }]
+                }]
+            }
         ];
 
         this.callParent(arguments);
-
-        this.on('activate', function () {
-            this.getPlaneGrid().reloadData();
-        }, this);
     },
 
-    buildPlaneGrid: function () {
-        this.setPlaneGrid(Ext.widget('plane-planegrid'));
+    buildMonitoringTitle: function () {
+        this.setMonitoringTitle(Ext.create('Ext.Container', {
+            layout: 'hbox',
+            items: [
+                {
+                    xtype: 'component',
+                    margin: '10 0 20 0',
+                    cls: 'title',
+                    html: 'Ares - Monitoring'
+                }
+            ]
+        }));
     }
+
 });

@@ -14,6 +14,9 @@ Ext.define('Ares.CONFIG', {
         planes: {
             url: '/WebService/planes',
             types: '/WebService/planes/types'
+        },
+        monitoring: {
+            sessions: '/WebService/monitoring/sessions'
         }
     },
 
@@ -55,6 +58,14 @@ Ext.define('Ares.CONFIG', {
                 plane: true,
                 user: false,
                 monitoring: false
+            },
+            actions: {
+                plane: {
+                    reload: true,
+                    create: false,
+                    remove: false,
+                    edit: false
+                }
             }
         },
         guest: {
@@ -90,9 +101,12 @@ Ext.define('Ares.CONFIG', {
                 // check given action for view
                 if (typeof action !== "undefined") {
 
-                    // TODO
-                    retVal = true;
-
+                    if (this.PERMISSIONS[curUserGroup].actions
+                        && this.PERMISSIONS[curUserGroup].actions[view]
+                        && this.PERMISSIONS[curUserGroup].actions[view][action]
+                        ) {
+                        retVal = true;
+                    }
                 } else {
                     retVal = true;
                 }

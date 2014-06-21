@@ -21,7 +21,8 @@ Ext.define('Ares.Application', {
     controllers: [
         'Ares.controller.Viewport',
         'Ares.controller.User',
-        'Ares.controller.Plane'
+        'Ares.controller.Plane',
+        'Ares.controller.Monitoring'
     ],
 
     stores: [
