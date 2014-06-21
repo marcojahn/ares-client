@@ -8,8 +8,8 @@ Ext.define('Ares.view.monitoring.tools.SessionCount', {
         'Ext.chart.series.Line',
         'Ext.data.JsonStore'
     ],
-    itemId: 'monitoring-tools-essioncount',
-    alias: 'widget.monitoring-tools-essioncount',
+    itemId: 'monitoring-tools-sessioncount',
+    alias: 'widget.monitoring-tools-sessioncount',
 
     //bodyPadding: 10,
 

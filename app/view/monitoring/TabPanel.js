@@ -42,7 +42,7 @@ Ext.define('Ares.view.monitoring.TabPanel', {
                         align: 'stretch'
                     },
                     items: [{
-                        xtype: 'monitoring-tools-essioncount',
+                        xtype: 'monitoring-tools-sessioncount',
                         flex: 1,
                         layout: 'fit'
                     }, {
