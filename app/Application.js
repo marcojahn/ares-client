@@ -27,7 +27,8 @@ Ext.define('Ares.Application', {
 
     stores: [
         'Ares.store.Users',
-        'Ares.store.Planes'
+        'Ares.store.Planes',
+        'Ares.store.ResourceAggregations'
     ],
 
     onBeforeLaunch: function () {

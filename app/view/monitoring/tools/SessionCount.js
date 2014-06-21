@@ -11,8 +11,6 @@ Ext.define('Ares.view.monitoring.tools.SessionCount', {
     itemId: 'monitoring-tools-sessioncount',
     alias: 'widget.monitoring-tools-sessioncount',
 
-    //bodyPadding: 10,
-
     title: 'Active sessions',
 
     config: {
@@ -33,19 +31,11 @@ Ext.define('Ares.view.monitoring.tools.SessionCount', {
         task: null
     },
 
+    flex: 1,
+    layout: 'fit',
+
     initComponent: function () {
         this.buildSessionCountStore();
-
-        this.tools = [
-            {
-                xtype: 'tool',
-                type: 'refresh',
-                listeners: {
-                    click: this.toogleTask,
-                    scope: this
-                }
-            }
-        ];
 
         this.items = [
             {
@@ -116,7 +106,13 @@ Ext.define('Ares.view.monitoring.tools.SessionCount', {
             interval: 5000,
             scope: this
         }));
+    },
+
+    startSessionCounter: function () {
         this.getTask().start();
+    },
+    stopSessionCounter: function () {
+        this.getTask().stop();
     },
 
     buildSessionCountStore: function () {
@@ -126,16 +122,6 @@ Ext.define('Ares.view.monitoring.tools.SessionCount', {
             data: this.getBaseData(),
             proxy: 'memory'
         }));
-    },
-
-    toogleTask: function () {
-        if (this.getTask().stopped === false) {
-            Ext.Logger.log('task stopped');
-            this.getTask().stop();
-        } else {
-            this.getTask().start();
-            Ext.Logger.log('task started');
-        }
     },
 
     refreshSessionCount: function () {

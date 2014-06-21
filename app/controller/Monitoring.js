@@ -3,37 +3,45 @@ Ext.define('Ares.controller.Monitoring', {
 
     config: {
 
-        /*refs: [
+        refs: [
             {
-                ref: 'userGrid',
-                selector: 'user-usergrid'
-            },
-            {
-                ref: 'createUserWindow',
-                selector: '#user-createuser'
+                ref: 'resourceAggregationGrid',
+                selector: 'monitoring-tools-resourceaggregation'
             }
-        ],*/
+        ],
 
-        /*listen: {
+        listen: {
             component: {
-                'user-usergrid button[action=reload]': {
+                'monitoring-tools-resourceaggregation pagingtoolbar button#refresh': {
                     click: 'onReload'
                 },
-                'user-usergrid button[action=create]': {
-                    click: 'onCreate'
+                'monitoring-tools-resourceaggregation button[action=purge]': {
+                    click: 'onPurge'
                 },
-                'user-usergrid button[action=delete]': {
+                'monitoring-tools-resourceaggregation button[action=delete]': {
                     click: 'onDelete'
-                },
-                'user-usergrid button[action=changepassword]': {
-                    click: 'onChangePassword'
-                },
-                '#user-createuser #user-createuser-form button[action=action]': {
-                    click: 'onUserCreate'
                 }
             }
-        }*/
-    }
+        }
+    },
 
+    onReload: function () {
+        this.getResourceAggregationGrid().reloadData();
+    },
+
+    onPurge: function () {
+        this.getResourceAggregationGrid().purgeData();
+    },
+
+    onDelete: function () {
+        var sm = this.getResourceAggregationGrid().getSelectionModel(),
+            selection = sm.getSelection();
+
+        if (selection.length === 0) {
+            Ext.Msg.alert('Error', 'No entry selection for deletion');
+        } else {
+            this.getResourceAggregationGrid().removeResource(selection[0].get('resourceId'));
+        }
+    }
 
 });

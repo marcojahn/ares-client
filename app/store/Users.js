@@ -6,6 +6,7 @@ Ext.define('Ares.store.Users', {
     ],
 
     storeId: 'UserStore',
+    alias: 'store.UserStore',
 
     model: 'Ares.model.User',
 

@@ -15,9 +15,6 @@ Ext.define('Ares.view.user.UserGrid', {
 
     autoScroll: true,
 
-    //height: 300,
-    //width: 600,
-
     selType: 'rowmodel',
     plugins: [
         Ext.create('Ext.grid.plugin.RowEditing', {

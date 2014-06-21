@@ -6,6 +6,7 @@ Ext.define('Ares.store.Planes', {
     ],
 
     storeId: 'PlaneStore',
+    alias: 'store.PlaneStore',
 
     model: 'Ares.model.Plane',
 

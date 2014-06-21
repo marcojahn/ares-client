@@ -16,12 +16,18 @@ Ext.define('Ares.CONFIG', {
             types: '/WebService/planes/types'
         },
         monitoring: {
-            sessions: '/WebService/monitoring/sessions'
+            sessions: '/WebService/monitoring/sessions',
+            resourceAggregation: {
+                read: '/WebService/monitoring/aggregate',
+                delete: '/WebService/monitoring/route',
+                purge: '/WebService/monitoring/purge'
+            }
         }
     },
 
     REASONS: {
-        'invalid_credentials': 'Invalid credentials'
+        'invalid_credentials': 'Invalid credentials',
+        'not_authorized': 'Not authorized'
     },
 
     CURRENT_USER: {},
