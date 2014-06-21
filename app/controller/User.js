@@ -25,6 +25,9 @@ Ext.define('Ares.controller.User', {
                 'user-usergrid button[action=delete]': {
                     click: 'onDelete'
                 },
+                'user-usergrid button[action=licenses]': {
+                    click: 'onLicenses'
+                },
                 'user-usergrid button[action=changepassword]': {
                     click: 'onChangePassword'
                 },
@@ -41,6 +44,10 @@ Ext.define('Ares.controller.User', {
 
     onCreate: function () {
         Ext.create('Ares.view.user.CreateUser');
+    },
+
+    onLicenses: function () {
+        Ext.create('Ares.view.user.ManageLicenses');
     },
 
     onDelete: function () {

@@ -52,6 +52,11 @@ Ext.define('Ares.view.user.UserGrid', {
                 text: 'change password',
                 glyph: 'xf023@FontAwesome',
                 action: 'changepassword'
+            },
+            {
+                text: 'licenses',
+                glyph: 'xf19d@FontAwesome',
+                action: 'licenses'
             }
         ];
 

@@ -95,5 +95,4 @@ Ext.define('Ares.view.user.CreateUser', {
             ]
         }));
     }
-
 });

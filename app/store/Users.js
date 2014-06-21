@@ -10,12 +10,12 @@ Ext.define('Ares.store.Users', {
 
     model: 'Ares.model.User',
 
-    pageSize: 25,
+    //pageSize: 25,
 
     autoLoad: false,
     autoSync: false,
 
-    remoteSort: true,
+    //remoteSort: true,
 
     groupField: 'usergroup',
 
@@ -26,10 +26,10 @@ Ext.define('Ares.store.Users', {
             type: 'json',
             rootProperty: 'records',
             totalProperty: 'total'
-        }/*,
-        sortParam: 'sort',
-        startParam: 'start',
-        limitParam: 'limit'*/
-
+        },
+        sortParam: undefined,
+        startParam: undefined,
+        limitParam: undefined,
+        pageParam: undefined
     }
 });

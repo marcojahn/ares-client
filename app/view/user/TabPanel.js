@@ -3,7 +3,8 @@ Ext.define('Ares.view.user.TabPanel', {
 
     requires: [
         'Ares.view.user.UserGrid',
-        'Ares.view.user.CreateUser'
+        'Ares.view.user.CreateUser',
+        'Ares.view.user.ManageLicenses'
     ],
 
     config: {

@@ -10,12 +10,12 @@ Ext.define('Ares.store.Planes', {
 
     model: 'Ares.model.Plane',
 
-    pageSize: 25,
+    //pageSize: 25,
 
     autoLoad: false,
     autoSync: false,
 
-    remoteSort: true,
+    //remoteSort: true,
 
     groupField: 'planetype',
 
@@ -26,10 +26,11 @@ Ext.define('Ares.store.Planes', {
             type: 'json',
             rootProperty: 'records',
             totalProperty: 'total'
-        }/*,
-        sortParam: 'sort',
-        startParam: 'start',
-        limitParam: 'limit'*/
+        },
+        sortParam: undefined,
+        startParam: undefined,
+        limitParam: undefined,
+        pageParam: undefined
 
     }
 });

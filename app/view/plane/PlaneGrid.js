@@ -61,7 +61,12 @@ Ext.define('Ares.view.plane.PlaneGrid', {
             fields: ['type', 'name'],
             proxy: {
                 type: 'ajax',
-                url: Ares.CONFIG.URL.planes.types
+                url: Ares.CONFIG.URL.planes.types,
+                sortParam: undefined,
+                startParam: undefined,
+                limitParam: undefined,
+                pageParam: undefined
+
             }
         });
 
