@@ -17,7 +17,8 @@ Ext.define('Ares.model.User', {
         'usergroup',
         'email',
         'created',
-        'lastmodified'
+        'lastmodified',
+        'licenses'
     ],
 
      groupNames: {
