@@ -1,15 +1,14 @@
-Ext.define('Ares.store.Users', {
+Ext.define('Ares.store.Reservations', {
     extend: 'Ext.data.Store',
 
     requires: [
         'Ext.data.proxy.Rest'
     ],
 
-    storeId: 'UserStore',
-    alias: 'store.UserStore',
+    storeId: 'Reservations',
+    alias: 'store.Reservations',
 
-    model: 'Ares.model.User',
-
+    model: 'Ares.model.Reservation',
     //pageSize: 25,
 
     autoLoad: false,
@@ -17,11 +16,11 @@ Ext.define('Ares.store.Users', {
 
     //remoteSort: true,
 
-    groupField: 'usergroup',
+    //groupField: 'usergroup',
 
     proxy: {
         type: 'rest',
-        url: Ares.CONFIG.URL.users.url,
+        url: Ares.CONFIG.URL.reservation.url,
         reader: {
             type: 'json',
             rootProperty: 'records',

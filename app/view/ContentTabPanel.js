@@ -22,7 +22,7 @@ Ext.define('Ares.view.ContentTabPanel', {
         bodyPadding: 10
     },
 
-    activeTab: 3,
+    activeTab: 1,
 
     items: [
         {

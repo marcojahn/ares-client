@@ -75,66 +75,71 @@ Ext.define('Ares.view.user.UserGrid', {
     },
 
     buildColumns: function () {
-        return [
-            {
-                text: 'ID',
-                dataIndex: 'userId',
-                editor: null
+        return {
+            defaults: {
+                flex: 1
             },
-            {
-                text: 'First name',
-                dataIndex: 'firstname',
-                editor: 'textfield'
-            },
-            {
-                text: 'Last name',
-                dataIndex: 'lastname',
-                editor: 'textfield'
-            },
-            {
-                text: 'Licenses',
-                dataIndex: 'licenses',
-                editor: null,
-                renderer: function (v) {
-                    // check if any license is invalid
-                    var i, license,
-                        licenses = Ext.isArray(v) ? v : [],
-                        iLen = licenses.length,
-                        invalidLicenses = 0;
+            items: [
+                {
+                    text: 'ID',
+                    dataIndex: 'userId',
+                    editor: null
+                },
+                {
+                    text: 'First name',
+                    dataIndex: 'firstname',
+                    editor: 'textfield'
+                },
+                {
+                    text: 'Last name',
+                    dataIndex: 'lastname',
+                    editor: 'textfield'
+                },
+                {
+                    text: 'Licenses',
+                    dataIndex: 'licenses',
+                    editor: null,
+                    renderer: function (v) {
+                        // check if any license is invalid
+                        var i, license,
+                            licenses = Ext.isArray(v) ? v : [],
+                            iLen = licenses.length,
+                            invalidLicenses = 0;
 
-                    for (i = 0; i < iLen; i++) {
-                        license = licenses[i];
-                        if (new Date(license.validUntil) < Ext.Date.subtract(new Date(), Ext.Date.DAY, 1)) {
-                            invalidLicenses++;
+                        for (i = 0; i < iLen; i++) {
+                            license = licenses[i];
+                            if (new Date(license.validUntil) < Ext.Date.subtract(new Date(), Ext.Date.DAY, 1)) {
+                                invalidLicenses++;
+                            }
                         }
+                        return (invalidLicenses === 0) ? licenses.length : licenses.length + ' (invalid: ' + invalidLicenses + ')';
                     }
-                    return (invalidLicenses === 0) ? licenses.length :  licenses.length + ' (invalid: ' + invalidLicenses + ')';
+                },
+                {
+                    text: 'User name',
+                    dataIndex: 'username',
+                    editor: null
+                },
+                {
+                    text: 'Email',
+                    dataIndex: 'email',
+                    editor: {
+                        xtype: 'textfield',
+                        allowBlank: false
+                    }
+                },
+                {
+                    text: 'User group',
+                    dataIndex: 'usergroup',
+                    editor: null
+                },
+                {
+                    text: 'Created',
+                    dataIndex: 'created',
+                    formatter: 'date("' + Ares.CONFIG.formattings.dateLong + '")',
+                    editor: null
                 }
-            },
-            {
-                text: 'User name',
-                dataIndex: 'username',
-                editor: null
-            },
-            {
-                text: 'Email',
-                dataIndex: 'email',
-                editor: {
-                    xtype: 'textfield',
-                    allowBlank: false
-                }
-            },
-            {
-                text: 'User group',
-                dataIndex: 'usergroup',
-                editor: null
-            },
-            {
-                text: 'Created',
-                dataIndex: 'created',
-                formatter: 'date("' + Ares.CONFIG.formattings.dateLong + '")',
-                editor: null
-            }
-        ];
+            ]
+        };
     }
 });

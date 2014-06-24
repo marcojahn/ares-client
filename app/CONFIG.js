@@ -15,6 +15,11 @@ Ext.define('Ares.CONFIG', {
             url: '/WebService/planes',
             types: '/WebService/planes/types'
         },
+        reservation: {
+            url: '/WebService/reservations',
+            availablePlanes: '/WebService/reservations/planes',
+            processWorkflow: '/WebService/reservations/workflowstep'
+        },
         monitoring: {
             sessions: '/WebService/monitoring/sessions',
             resourceAggregation: {
@@ -27,7 +32,8 @@ Ext.define('Ares.CONFIG', {
 
     REASONS: {
         'invalid_credentials': 'Invalid credentials',
-        'not_authorized': 'Not authorized'
+        'not_authorized': 'Not authorized',
+        'not_authenticated': 'Not authenticated'
     },
 
     CURRENT_USER: {},
@@ -36,7 +42,8 @@ Ext.define('Ares.CONFIG', {
         start: 'reserved',
         status: {
             reserved: {
-                value: 'Reserved'
+                value: 'Reserved',
+                next: ['lent', 'cancelled']
             },
             cancelled: {
                 value: 'Cancelled',

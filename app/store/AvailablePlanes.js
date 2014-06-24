@@ -1,14 +1,19 @@
-Ext.define('Ares.store.Users', {
+Ext.define('Ares.store.AvailablePlanes', {
     extend: 'Ext.data.Store',
 
     requires: [
         'Ext.data.proxy.Rest'
     ],
 
-    storeId: 'UserStore',
-    alias: 'store.UserStore',
+    storeId: 'AvailablePlanes',
+    alias: 'store.AvailablePlanes',
 
-    model: 'Ares.model.User',
+    //model: 'Ares.model.User',
+    fields: [
+        '_id',
+        'plane',
+        'planetype'
+    ],
 
     //pageSize: 25,
 
@@ -17,11 +22,11 @@ Ext.define('Ares.store.Users', {
 
     //remoteSort: true,
 
-    groupField: 'usergroup',
+    //groupField: 'usergroup',
 
     proxy: {
         type: 'rest',
-        url: Ares.CONFIG.URL.users.url,
+        url: Ares.CONFIG.URL.reservation.availablePlanes,
         reader: {
             type: 'json',
             rootProperty: 'records',

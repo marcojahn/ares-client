@@ -22,13 +22,16 @@ Ext.define('Ares.Application', {
         'Ares.controller.Viewport',
         'Ares.controller.User',
         'Ares.controller.Plane',
-        'Ares.controller.Monitoring'
+        'Ares.controller.Monitoring',
+        'Ares.controller.Reservation'
     ],
 
     stores: [
         'Ares.store.Users',
         'Ares.store.Planes',
-        'Ares.store.ResourceAggregations'
+        'Ares.store.ResourceAggregations',
+        'Ares.store.AvailablePlanes',
+        'Ares.store.Reservations'
     ],
 
     onBeforeLaunch: function () {

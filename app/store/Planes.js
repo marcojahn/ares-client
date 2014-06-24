@@ -30,7 +30,18 @@ Ext.define('Ares.store.Planes', {
         sortParam: undefined,
         startParam: undefined,
         limitParam: undefined,
-        pageParam: undefined
+        pageParam: undefined,
+        listeners: {
+            exception: function (proxy, response, operation) {
+                var errorMsg = 'Error',
+                    error = Ext.JSON.decode(response.responseText);
 
+                if (error.reason) {
+                    errorMsg = (Ares.CONFIG.REASONS[error.reason]) ? Ares.CONFIG.REASONS[error.reason] : error.reason;
+                }
+
+                Ext.Msg.alert('Connection Error', errorMsg);
+            }
+        }
     }
 });

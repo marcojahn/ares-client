@@ -2,10 +2,10 @@ Ext.define('Ares.view.reservation.TabPanel', {
     extend: 'Ext.panel.Panel',
 
     requires: [
+        'Ares.view.reservation.AvailablePlanesGrid',
+        'Ares.view.reservation.ReservationsGrid',
+        'Ares.view.reservation.CreateReservation'
     ],
-
-    config: {
-    },
 
     itemId: 'reservation-tabpanel',
 
@@ -18,31 +18,35 @@ Ext.define('Ares.view.reservation.TabPanel', {
         align: 'stretch'
     },
 
+    config: {
+        availablePlanesGrid: null,
+        reservationGrid: null
+    },
+
     bodyCls: 'app-reservation',
 
     initComponent: function () {
+        this.buildAvailablePlanesGrid();
+        this.buildReservationGrid();
+
         this.items = [
-            {
-                xtype: 'panel',
-                title: 'free planes',
-                flex: 1,
-                layout: 'fit'
-            },
-            {
-                xtype: 'panel',
-                flex: 2,
-                margin: '0 0 0 40',
-                title: 'reserved planes',
-                layout: 'fit'
-            }
+            this.getAvailablePlanesGrid(),
+            this.getReservationGrid()
         ];
 
         this.callParent(arguments);
 
         this.on('activate', function () {
+            this.getAvailablePlanesGrid().reloadData();
+            this.getReservationGrid().reloadData();
         }, this);
+    },
 
-        this.on('deactivate', function () {
-        }, this);
+    buildAvailablePlanesGrid: function () {
+        this.setAvailablePlanesGrid(Ext.widget('reservation-availableplanesgrid'));
+    },
+
+    buildReservationGrid: function () {
+        this.setReservationGrid(Ext.widget('reservation-reservationsgrid'));
     }
 });
