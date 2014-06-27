@@ -3,7 +3,8 @@ Ext.define('Ares.view.reservation.ReservationsGrid', {
 
     requires: [
         'Ext.grid.column.Date',
-        'Ext.grid.column.Action'
+        'Ext.grid.column.Action',
+        'Ext.grid.filters.Filters'
     ],
 
     alias: 'widget.reservation-reservationsgrid',
@@ -19,8 +20,18 @@ Ext.define('Ares.view.reservation.ReservationsGrid', {
     margin: '0 0 0 40',
     layout: 'fit',
 
+    plugins: 'gridfilters',
+
     initComponent: function () {
         this.columns = this.buildColumns();
+
+        this.tbar = [
+            {
+                text: 'Reload',
+                glyph: 'xf021@FontAwesome',
+                action: 'reload'
+            }
+        ];
 
         this.callParent(arguments);
     },
@@ -65,10 +76,20 @@ Ext.define('Ares.view.reservation.ReservationsGrid', {
                 dataIndex: 'status',
                 renderer: function (v) {
                     return Ares.CONFIG.WORKFLOW.status[v].value;
+                },
+                filter: {
+                    type: 'list',
+                    options: [
+                        ['reserved', 'Reserved'],
+                        ['lent', 'Lent'],
+                        ['cancelled', 'Cancelled'],
+                        ['returned', 'Returned']
+                    ]
                 }
             },
             {
                 xtype: 'actioncolumn',
+                hidden: !Ares.CONFIG.hasPermission('reservation', 'processWorkflow'),
                 items: [
                     {
                         tooltip: 'Process Workflow',

@@ -14,6 +14,7 @@ Ext.define('Ares.store.Reservations', {
     autoLoad: false,
     autoSync: false,
 
+    remoteFilter: true,
     //remoteSort: true,
 
     //groupField: 'usergroup',

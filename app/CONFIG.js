@@ -88,6 +88,11 @@ Ext.define('Ares.CONFIG', {
                 plane: false,
                 user: false,
                 monitoring: false
+            },
+            actions: {
+                reservation: {
+                    processWorkflow: false
+                }
             }
         }
     },

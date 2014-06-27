@@ -14,9 +14,9 @@ Ext.define('Ares.view.ContentTabPanel', {
 
     title: 'Content',
 
-    /*tabBar: {
+    tabBar: {
         hidden: true
-    },*/
+    },
 
     defaults: {
         bodyPadding: 10

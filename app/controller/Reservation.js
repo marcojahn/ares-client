@@ -23,8 +23,14 @@ Ext.define('Ares.controller.Reservation', {
                 'reservation-availableplanesgrid': {
                     rowdblclick: 'onItemDblClick'
                 },
+                'reservation-availableplanesgrid button[action=reload]': {
+                    click: 'onAvailablePlanesReload'
+                },
                 'reservation-reservationsgrid': {
                     processworkflow: 'onProcessWorkflow'
+                },
+                'reservation-reservationsgrid button[action=reload]': {
+                    click: 'onReservationGridReload'
                 },
                 'reservation-createreservation button[action=createReservation]': {
                     click: 'onCreateReservation'
@@ -143,5 +149,13 @@ Ext.define('Ares.controller.Reservation', {
         });
 
         this.getCreateReservationWindow().close();
+    },
+
+    onAvailablePlanesReload: function () {
+        this.getAvailablePlanesGrid().reloadData();
+    },
+
+    onReservationGridReload: function () {
+        this.getReservationsGrid().reloadData();
     }
 });

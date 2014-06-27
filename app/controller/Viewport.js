@@ -26,8 +26,8 @@ Ext.define('Ares.controller.Viewport', {
             method: 'DELETE',
             scope: this,
             callback: function () {
-                Ext.ComponentQuery.query('viewport')[0].destroy();
-                window.location.reload();
+                try{Ext.ComponentQuery.query('viewport')[0].destroy()} catch (e) {};
+                window.location.href = 'http://pacdev.dev'
             }
         });
     },

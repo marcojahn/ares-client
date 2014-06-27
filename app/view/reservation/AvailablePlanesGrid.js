@@ -16,6 +16,14 @@ Ext.define('Ares.view.reservation.AvailablePlanesGrid', {
     initComponent: function () {
         this.columns = this.buildColumns();
 
+        this.tbar = [
+            {
+                text: 'Reload',
+                glyph: 'xf021@FontAwesome',
+                action: 'reload'
+            }
+        ];
+
         this.callParent(arguments);
     },
 
