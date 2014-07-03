@@ -78,10 +78,12 @@ Ext.define('Ares.view.monitoring.TabPanel', {
 
         this.on('activate', function () {
             this.getResourceAggregationGrid().reloadData();
+            this.getResourceAggregationGrid().startMonitoringRefresh();
             this.getSessionCount().startSessionCounter();
         }, this);
 
         this.on('deactivate', function () {
+            this.getResourceAggregationGrid().stopMonitoringRefresh();
             this.getSessionCount().stopSessionCounter();
         }, this);
     },

@@ -110,7 +110,7 @@ Ext.define('Ares.controller.User', {
     },
 
     onLicenseSave: function () {
-        var i, planetype,
+        var i, planetype, validUntil,
             iLen = this.planetypeStore.getCount(),
             form = this.getManageLicensesWindow().getLicenseForm().getForm(),
             licenseInformation = [];
@@ -118,9 +118,11 @@ Ext.define('Ares.controller.User', {
         for (i = 0; i < iLen; i++) {
             planetype = this.planetypeStore.getAt(i);
             if (form.findField('checkbox_' + planetype.get('type')).getValue() === true) {
+                validUntil = Ext.Date.add(form.findField('datefield_' + planetype.get('type')).getValue(), Ext.Date.DAY, 1);
                 licenseInformation.push({
                     planetype: planetype.get('type'),
-                    validUntil: form.findField('datefield_' + planetype.get('type')).getValue()
+                    //validUntil: form.findField('datefield_' + planetype.get('type')).getValue()
+                    validUntil: validUntil
                 });
             }
         }

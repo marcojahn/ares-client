@@ -12,6 +12,10 @@ Ext.define('Ares.view.monitoring.tools.ResourceAggregationGrid', {
 
     flex: 1,
 
+    config: {
+        task: null
+    },
+
     initComponent: function () {
 
         this.columns = this.buildColumns();
@@ -37,6 +41,13 @@ Ext.define('Ares.view.monitoring.tools.ResourceAggregationGrid', {
         }];
 
         this.callParent();
+
+        var runner = new Ext.util.TaskRunner();
+        this.setTask(runner.newTask({
+            run: this.refreshMonitoring,
+            interval: 5000,
+            scope: this
+        }));
     },
 
     reloadData: function () {
@@ -114,5 +125,16 @@ Ext.define('Ares.view.monitoring.tools.ResourceAggregationGrid', {
                 renderer: msRenderer
             }
         ];
+    },
+
+    startMonitoringRefresh: function () {
+        this.getTask().start();
+    },
+    stopMonitoringRefresh: function () {
+        this.getTask().stop();
+    },
+
+    refreshMonitoring: function () {
+        this.reloadData();
     }
 });

@@ -58,7 +58,7 @@ Ext.define('Ares.view.reservation.ReservationsGrid', {
                 text: 'Until',
                 dataIndex: 'until',
                 xtype: 'datecolumn',
-                format: 'Y-m-d H:i:s',
+                format: 'c',
                 width: 150
             },
             {

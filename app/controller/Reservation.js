@@ -122,6 +122,9 @@ Ext.define('Ares.controller.Reservation', {
         startdate = Ext.Date.parse(Ext.Date.format(form.findField('startdate').getValue(), 'Y-m-d') + ' ' + Ext.Date.format(form.findField('starttime').getValue(), 'g:i:s A'), 'Y-m-d g:i:s A');
         enddate = Ext.Date.parse(Ext.Date.format(form.findField('enddate').getValue(), 'Y-m-d') + ' ' + Ext.Date.format(form.findField('endtime').getValue(), 'g:i:s A'), 'Y-m-d g:i:s A');
 
+        startdate = Ext.Date.format(startdate, 'c');
+        enddate = Ext.Date.format(enddate, 'c');
+
         var newReservation = {
             plane: selection.get('plane'),
             planetype: selection.get('planetype'),
@@ -135,7 +138,6 @@ Ext.define('Ares.controller.Reservation', {
         this.getReservationsGrid().getStore().sync({
             success: function () {
                 this.getReservationsGrid().reloadData();
-                this.get
             },
             failure: function (batch, options) {
                 if (batch.hasException()) {

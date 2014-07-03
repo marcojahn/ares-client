@@ -94,7 +94,7 @@ Ext.define('Ares.view.reservation.CreateReservation', {
                             anchor: '100%',
                             fieldLabel: 'Date',
                             minValue: Ext.Date.subtract(new Date(), Ext.Date.DAY, 0),
-                            maxValue: new Date(dateMaxValue),
+                            maxValue: Ext.Date.subtract(new Date(dateMaxValue), Ext.Date.DAY, 1),
                             allowBlank: false,
                             name: 'enddate',
                             itemId: 'enddate',

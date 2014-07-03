@@ -78,6 +78,9 @@ Ext.define('Ares.CONFIG', {
                     create: false,
                     remove: false,
                     edit: false
+                },
+                reservation: {
+                    processWorkflow: true
                 }
             }
         },
